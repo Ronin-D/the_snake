@@ -55,8 +55,8 @@ class GameObject():
 class Apple(GameObject):
     """food object"""
 
-    def __init__(self) -> None:
-        super().__init__(APPLE_COLOR, (0, 0))
+    def __init__(self, body_color=APPLE_COLOR, position=(0, 0)) -> None:
+        super().__init__(body_color, position)
         self.randomize_position()
 
     def randomize_position(self):
@@ -75,8 +75,12 @@ class Apple(GameObject):
 class Snake(GameObject):
     """Snake object"""
 
-    def __init__(self) -> None:
-        super().__init__(SNAKE_COLOR, (SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
+    def __init__(
+        self,
+        body_color=SNAKE_COLOR,
+        position=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    ) -> None:
+        super().__init__(body_color, position)
         self.length = 1
         self.positions = [self.position]
         self.direction = RIGHT
